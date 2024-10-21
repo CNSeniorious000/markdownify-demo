@@ -4,4 +4,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [unocss(), sveltekit()],
+  worker: {
+    format: "es",
+  },
 });
