@@ -42,7 +42,7 @@
       {#if editorType === "monaco"}
         <Editor showLineNum bind:source={html} lang="html" />
       {:else if editorType === "simple"}
-        <div class="relative mx-5 my-4 h-[calc(100%-2rem)] min-h-fit min-w-fit w-[calc(100%-2.5rem)] text-xs">
+        <div class="relative mx-5 my-4 h-[calc(100%-2rem)] min-h-fit min-w-fit w-[calc(100%-2.5rem)] text-xs [&_pre]:!bg-transparent">
           <Highlight lang="html" source={html} />
           <textarea bind:value={html} class="absolute inset-0 resize-none overflow-hidden ws-pre bg-transparent text-transparent leading-relaxed font-mono caret-white outline-none" />
         </div>
