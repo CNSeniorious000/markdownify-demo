@@ -4,9 +4,10 @@
 
 <script lang="ts">
   import type monaco from "monaco-editor-core";
+  import type { BundledLanguage, BundledTheme } from "shiki/bundle/web";
 
   import { shikiToMonaco } from "@shikijs/monaco";
-  import { type BundledLanguage, type BundledTheme, getSingletonHighlighter } from "shiki/bundle/web";
+  import { getSingletonHighlighter } from "shiki/bundle/web";
   import { onDestroy, onMount } from "svelte";
   import { fade } from "svelte/transition";
 
