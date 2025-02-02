@@ -5,8 +5,12 @@
   import { getWorker } from "$lib/worker";
   import { onMount } from "svelte";
 
-  export let lang: BundledLanguage | "";
-  export let text: string;
+  interface Props {
+    lang: BundledLanguage | "";
+    text: string;
+  }
+
+  let { lang = $bindable(), text }: Props = $props();
 
   if (!lang) {
     if (text.startsWith(">>>")) {
