@@ -2,7 +2,7 @@
   import "../md.css";
 
   import code from "./CodeBlock.svelte";
-  import SvelteMarkdown from "svelte-markdown";
+  import SvelteMarkdown from "@humanspeak/svelte-markdown";
 
   export let text: string;
 </script>
