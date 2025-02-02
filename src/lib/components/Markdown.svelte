@@ -4,7 +4,7 @@
   import code from "./CodeBlock.svelte";
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
 
-  export let text: string;
+  const { text }: { text: string } = $props();
 </script>
 
 <article class="max-h-full max-w-full p-3 text-neutral-3 prose">

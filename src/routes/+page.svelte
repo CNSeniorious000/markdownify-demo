@@ -8,31 +8,39 @@
   import ToggleGroup from "$lib/components/ToggleGroup.svelte";
   import { getWorker } from "$lib/worker";
 
-  export let data: PageServerData;
+  interface Props {
+    data: PageServerData;
+  }
 
-  let html = data.example;
-  let url = "";
-  let output: string;
+  const { data }: Props = $props();
+
+  let html = $state(data.example);
+  let url = $state("");
+  let output = $state<string>();
 
   async function toMarkdown(html: string) {
     output = await getWorker().toMarkdown(html);
   }
 
-  $: browser && toMarkdown(html);
+  $effect(() => {
+    browser && toMarkdown(html);
+  });
 
-  let fetching = false;
+  let fetching = $state(false);
 
-  $: if (url) {
-    fetching = true;
-    fetch(`/proxy?url=${encodeURIComponent(url)}`, { headers: { accept: "text/html" } })
-      .then(async (res) => {
-        html = await res.text();
-      })
-      .finally(() => fetching = false);
-  }
+  $effect(() => {
+    if (url) {
+      fetching = true;
+      fetch(`/proxy?url=${encodeURIComponent(url)}`, { headers: { accept: "text/html" } })
+        .then(async (res) => {
+          html = await res.text();
+        })
+        .finally(() => fetching = false);
+    }
+  });
 
-  let editorType: "monaco" | "simple" = "monaco";
-  let previewType: "rendered" | "raw" = "rendered";
+  let editorType: "monaco" | "simple" = $state("monaco");
+  let previewType: "rendered" | "raw" = $state("rendered");
 </script>
 
 <div class="m-6 h-full w-90vw flex flex-col gap-4 [&>section]:(relative h-90vh w-full flex flex-col gap-3 overflow-x-scroll rounded-md <sm:h-[calc(50vh-2rem)]) lg:m-10 sm:m-8 sm:flex-row md:gap-6 xl:gap-8">
@@ -44,7 +52,7 @@
       {:else if editorType === "simple"}
         <div class="relative mx-5 my-4 h-[calc(100%-2rem)] min-h-fit min-w-fit w-[calc(100%-2.5rem)] text-xs [&_pre]:!bg-transparent">
           <Highlight lang="html" source={html} />
-          <textarea bind:value={html} class="absolute inset-0 resize-none overflow-hidden ws-pre bg-transparent text-transparent leading-relaxed font-mono caret-white outline-none" />
+          <textarea bind:value={html} class="absolute inset-0 resize-none overflow-hidden ws-pre bg-transparent text-transparent leading-relaxed font-mono caret-white outline-none"></textarea>
         </div>
       {/if}
     </div>
@@ -69,7 +77,7 @@
       </div>
     {:else}
       <div class="grid h-full w-full place-items-center text-neutral-5">
-        <div class="i-svg-spinners-bars-rotate-fade" />
+        <div class="i-svg-spinners-bars-rotate-fade"></div>
       </div>
     {/if}
   </section>

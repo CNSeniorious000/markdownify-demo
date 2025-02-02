@@ -1,14 +1,20 @@
-<script>
+<script lang="ts">
   import "@unocss/reset/tailwind.css";
   import "@fontsource-variable/jetbrains-mono";
   import "uno.css";
+
+  interface Props {
+    children?: import("svelte").Snippet;
+  }
+
+  const { children }: Props = $props();
 </script>
 
 <svelte:head>
   <link rel="icon" href="https://api.iconify.design/fluent-color:document-16.svg" />
 </svelte:head>
 
-<slot />
+{@render children?.()}
 
 <style>
   :global(html) {

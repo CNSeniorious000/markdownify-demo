@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
   import { lru } from "$lib/utils/cache";
   import { codeToHtml } from "shiki/bundle/web";
 
@@ -8,13 +8,19 @@
 <script lang="ts">
   import type { BundledLanguage, BundledTheme } from "shiki/bundle/web";
 
-  export let lang: BundledLanguage | "ansi" | "text";
-  export let source: string;
-  export let theme: BundledTheme = "vitesse-dark";
+  interface Props {
+    lang: BundledLanguage | "ansi" | "text";
+    source: string;
+    theme?: BundledTheme;
+  }
 
-  let html = "";
+  const { lang, source, theme = "vitesse-dark" }: Props = $props();
 
-  $: cachedRender(source, { lang, theme }).then((out) => (html = out));
+  let html = $state("");
+
+  $effect(() => {
+    cachedRender(source, { lang, theme }).then((out) => (html = out));
+  });
 </script>
 
 <div class="line-height-relaxed [&_*]:font-mono">
