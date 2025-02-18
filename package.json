@@ -15,7 +15,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.1.1",
     "@humanspeak/svelte-markdown": "^0.7.14",
     "@iconify/json": "^2.2.262",
-    "@shikijs/monaco": "^2.2.0",
+    "@shikijs/monaco": "^3.0.0",
     "@sveltejs/adapter-auto": "^4.0.0",
     "@sveltejs/kit": "^2.7.2",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
