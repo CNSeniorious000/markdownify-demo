@@ -2,7 +2,9 @@
   "extends": [
     "config:recommended"
   ],
-  "commitMessage": "chore(deps): update `{{depName}}` to `{{newVersion}}`",
+  "commitMessage": "chore(deps): update `{{depName}}` from `currentVersion` to `{{newVersion}}`",
+  "commitBody": "",
+  "prTitle": "{{commitMessageAction}} {{commitMessageTopic}} {{commitMessageExtra}} {{commitMessageSuffix}}",
   "addLabels": [
     "dependencies"
   ],
