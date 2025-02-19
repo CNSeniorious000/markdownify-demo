@@ -1,6 +1,7 @@
 {
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":semanticCommitTypeAll(ci)"
   ],
   "commitMessage": "chore(deps): update `{{depName}}` from `currentVersion` to `{{newVersion}}`",
   "commitBody": "",
