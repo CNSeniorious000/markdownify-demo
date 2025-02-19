@@ -1,6 +1,10 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "commitMessage": "chore(deps): update `{{depName}}` to `{{newVersion}}`",
+  "addLabels": [
+    "dependencies"
+  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
 }
