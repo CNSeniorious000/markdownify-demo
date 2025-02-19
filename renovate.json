@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "config:recommended",
+    ":semanticCommitTypeAll(ci)"
+  ],
+  "commitMessage": "chore(deps): update `{{packageName}}` from `{{currentVersion}}` to `{{newVersion}}`",
+  "commitBody": "",
+  "prTitle": "Update {{commitMessageTopic}} {{commitMessageExtra}} {{commitMessageSuffix}}",
+  "addLabels": [
+    "dependencies"
+  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+}
