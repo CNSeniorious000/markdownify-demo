@@ -16,7 +16,7 @@
     "@humanspeak/svelte-markdown": "^0.7.14",
     "@iconify/json": "^2.2.262",
     "@shikijs/monaco": "^3.0.0",
-    "@sveltejs/adapter-auto": "^4.0.0",
+    "@sveltejs/adapter-auto": "^5.0.0",
     "@sveltejs/kit": "^2.7.2",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@unocss/extractor-svelte": "^66.0.0",
