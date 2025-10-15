@@ -31,7 +31,7 @@
     "vite": "^7.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.0.0",
+    "@antfu/eslint-config": "^6.0.0",
     "@unocss/eslint-config": "^66.0.0",
     "eslint": "^9.13.0",
     "eslint-plugin-format": "^1.0.1",
