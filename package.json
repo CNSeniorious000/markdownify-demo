@@ -24,7 +24,7 @@
     "cheerio": "^1.0.0",
     "comlink": "^4.4.1",
     "monaco-editor-core": "^0.54.0",
-    "pyodide": "^0.28.0",
+    "pyodide": "^0.29.0",
     "shiki": "^3.0.0",
     "svelte": "^5.19.6",
     "unocss": "^66.0.0",
